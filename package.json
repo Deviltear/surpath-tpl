@@ -1,0 +1,59 @@
+{
+  "name": "surpath-tpl",
+  "version": "1.0.5",
+  "description": "创建统一模块模板，支持模板有 umi js、umi ts、ts js 函数组件、mvc目录结构模板等",
+  "keywords": [
+    "surpath-tpl",
+    "template",
+    "tpl"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Deviltear/surpath-tpl.git"
+  },
+  "bin": {
+    "surpathTpl": "bin/tpl.js"
+  },
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "prebuild": "npm run clean",
+    "build": "babel src --out-dir lib",
+    "eslint": "eslint --ext .js --ext .jsx ./src",
+    "lint-staged": "lint-staged",
+    "prepublish": "npm run build"
+  },
+  "author": "sunnycc",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@types/yargs": "^17.0.10",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.5.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "lint-staged": "^8.1.0",
+    "pre-commit": "^1.2.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "chalk": "^3.0.0",
+    "inquirer": "8.0.0",
+    "rimraf": "^3.0.2",
+    "yargs": "17.5.1"
+  },
+
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "pre-commit": [
+    "lint-staged"
+  ]
+}
