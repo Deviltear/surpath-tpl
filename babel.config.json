@@ -3,7 +3,11 @@
     [
       "@babel/env",
       {
-        "useBuiltIns": "usage"
+        "targets":{
+          "chrome": "60"
+        },
+        "useBuiltIns": "usage",
+        "corejs": 3
       }
     ]
   ]

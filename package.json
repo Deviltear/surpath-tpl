@@ -1,6 +1,6 @@
 {
   "name": "surpath-tpl",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "创建统一模块模板，支持模板有 umi js、umi ts、ts js 函数组件、mvc目录结构模板等",
   "keywords": [
     "surpath-tpl",
@@ -17,7 +17,7 @@
   "scripts": {
     "clean": "rimraf ./lib",
     "prebuild": "npm run clean",
-    "build": "babel src --out-dir lib",
+    "build": "babel src -d lib",
     "eslint": "eslint --ext .js --ext .jsx ./src",
     "lint-staged": "lint-staged",
     "prepublish": "npm run build"
@@ -40,13 +40,13 @@
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.8.3",
     "chalk": "^3.0.0",
+    "core-js": "^3.24.1",
     "inquirer": "8.0.0",
+    "regenerator-runtime": "^0.13.9",
     "rimraf": "^3.0.2",
     "yargs": "17.5.1"
   },
-
   "lint-staged": {
     "*.{js,jsx}": [
       "eslint --fix",
