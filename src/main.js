@@ -25,18 +25,18 @@ const CHOOSE_PAGE_TYPE = [
 let templateInfo = {}
 async function Main(argv) {
   const { _: files } = argv
+  if (!files?.length) {
+    const msg = chalk.yellow(`请输入要创建的模块名称！！！`)
+    console.info(msg) // eslint-disable-line
+    return
+  }
   await getTemplateType()
   const newArgv = { ...argv, ...templateInfo }
 
-  if (files.length > 0) {
-    files.map(file => {
-      start(file, newArgv)
-      return null
-    })
-  } else {
-    const msg = chalk.yellow(`请输入要创建的模块名称！！！`)
-    console.info(msg) // eslint-disable-line
-  }
+  files.map(file => {
+    start(file, newArgv)
+    return null
+  })
 }
 async function getTemplateType() {
   const { templateLanguage, templateType } = await inquirer.prompt([
