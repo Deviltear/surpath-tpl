@@ -57,9 +57,6 @@
       "eslint --fix",
       "git add"
     ]
-  },
-  "pre-commit": [
-    "lint-staged"
-  ]
+  }
   
 }
