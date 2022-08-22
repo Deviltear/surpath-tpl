@@ -110,7 +110,7 @@ function writeFcFile(filePath, pageName, fileName, argv, filesuffix = 'ts') {
 function writeUmiPageFileByLanguage(filePath, pageName, file, argv, filesuffix = 'ts') {
   // 创建文件，写入内容
   // index.ts
-  writeFile(`${filePath}/index.${filesuffix}`, indexContent(pageName, argv))
+  writeFile(`${filePath}/index.${filesuffix}x`, indexContent(pageName, argv))
   // MapProps.js
   writeFile(`${filePath}/MapProps.${filesuffix}`, mapPropsContent(pageName, file, argv))
   // xxxPage.tsx
@@ -136,7 +136,7 @@ function wirteUmiSrcModelAndService(filePath, file, argv, filesuffix = 'ts') {
 function writeMvcPageFile(filePath, pageName, file, argv, filesuffix = 'ts') {
   // 创建文件，写入内容
 
-  writeFile(`${filePath}/index.${filesuffix}`, indexContent(pageName, argv))
+  writeFile(`${filePath}/index.${filesuffix}x`, indexContent(pageName, argv))
 
   // writeFile(`${filePath}/MapProps.${filesuffix}`, mapPropsContent(pageName, file, argv))
 

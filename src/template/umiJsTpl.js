@@ -66,11 +66,7 @@ import { connect } from 'umi';
 import { mapStateToProps, mapDispatchToProps } from './MapProps';
 import styles from './${pageName}.scss';
 
-interface I${pageName}Props {
-  name:string;
-  age?number
-}
-const ${pageName} = (props:I${pageName}Props) => {
+const ${pageName} = (props) => {
   const { name ,age} =props
   const [visible, setVisible] = useState(false);
 
@@ -83,8 +79,8 @@ const ${pageName} = (props:I${pageName}Props) => {
 
 
 ${pageName}.propTypes = {
-  name :PropTypes.string.isRequired,
-  age : PropTypes.number,
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number,
 }
 
 

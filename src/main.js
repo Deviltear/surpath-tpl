@@ -80,12 +80,11 @@ function start(file, argv) {
     // 获取 root 下面的所有文件夹
     const pagesPath = path.resolve(process.cwd(), root)
     const allDirs = findDirs(pagesPath)
-    if (allDirs.includes(file)) {
-      const msg = chalk.yellow(`${file} 文件夹已经存在，请重命名输入！！！`)
+    if (allDirs.includes(capitalize(file))) {
+      const msg = chalk.yellow(`${file} ---> ${capitalize(file)} 的文件夹已经存在，请重命名输入！！！`)
       console.info(msg) // eslint-disable-line
       return
     }
-
     // 组件模板处理函数
     if (templateType === 'Component') {
       const fileName = capitalize(file)

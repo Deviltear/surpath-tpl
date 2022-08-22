@@ -46,7 +46,7 @@ const ${fileName} = (props) => {
 };
 
 ${fileName}.propTypes = {
-  className : PropTypes.string,
+  className: PropTypes.string,
 }
 export default ${fileName};
 `
