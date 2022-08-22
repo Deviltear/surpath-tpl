@@ -103,8 +103,8 @@ function writeFcFile(filePath, pageName, fileName, argv, filesuffix = 'ts') {
   writeFile(`${filePath}/index.${filesuffix}`, indexContent(fileName, argv))
   // xxx.(t|j)sx
   writeFile(`${filePath}/${fileName}.${filesuffix}x`, pContent(fileName, argv))
-  // xxx.less
-  writeFile(`${filePath}/${fileName}.less`, lessContent(fileName),true)
+  // xxx.scss
+  writeFile(`${filePath}/${fileName}.scss`, lessContent(fileName),true)
 }
 // 创建umi 页面结构并写入
 function writeUmiPageFileByLanguage(filePath, pageName, file, argv, filesuffix = 'ts') {
@@ -115,12 +115,22 @@ function writeUmiPageFileByLanguage(filePath, pageName, file, argv, filesuffix =
   writeFile(`${filePath}/MapProps.${filesuffix}`, mapPropsContent(pageName, file, argv))
   // xxxPage.tsx
   writeFile(`${filePath}/${pageName}.${filesuffix}x`, pContent(file, pageName, argv))
-  // xxxPage.less
-  writeFile(`${filePath}/${pageName}.less`, lessContent(argv))
-  // services.ts
-  writeFile(`${filePath}/services/${file}.${filesuffix}`, servicesContent(file, argv))
-  // models.tsx
-  writeFile(`${filePath}/models/${file}.${filesuffix}`, modelsContent(file, argv), true)
+  // xxxPage.scss
+  writeFile(`${filePath}/${pageName}.scss`, lessContent(argv),true)
+  // // services.ts
+  // writeFile(`${filePath}/services/${file}.${filesuffix}`, servicesContent(file, argv))
+  // // models.tsx
+  // writeFile(`${filePath}/models/${file}.${filesuffix}`, modelsContent(file, argv), true)
+}
+function wirteUmiSrcModelAndService(filePath, file, argv, filesuffix = 'ts') {
+    // services.js
+    if (filePath.includes('services')) {
+      writeFile(`${filePath}/${file}.${filesuffix}`, servicesContent(file, argv))
+    }
+    // models.js
+    if (filePath.includes('models')) {
+      writeFile(`${filePath}/${file}.${filesuffix}`, modelsContent(file, argv))
+    }
 }
 // 创建 redux mvc 页面结构并写入
 function writeMvcPageFile(filePath, pageName, file, argv, filesuffix = 'ts') {
@@ -128,11 +138,11 @@ function writeMvcPageFile(filePath, pageName, file, argv, filesuffix = 'ts') {
 
   writeFile(`${filePath}/index.${filesuffix}`, indexContent(pageName, argv))
 
-  writeFile(`${filePath}/MapProps.${filesuffix}`, mapPropsContent(pageName, file, argv))
+  // writeFile(`${filePath}/MapProps.${filesuffix}`, mapPropsContent(pageName, file, argv))
 
-  writeFile(`${filePath}/${pageName}.${filesuffix}`, pContent(pageName, argv))
+  writeFile(`${filePath}/${pageName}.${filesuffix}x`, pContent(pageName, argv,file))
 
-  writeFile(`${filePath}/${pageName}.less`, lessContent(argv),true)
+  writeFile(`${filePath}/${pageName}.scss`, lessContent(argv),true)
 }
 // mvc 页面模式下 需在src文件夹下写入对应的reducer及service 及 M 和C 层目录结构
 function writeReduxMCFile(filePath, file, argv, filesuffix = 'ts') {
@@ -164,5 +174,6 @@ function writeFile(filename, fileContent = '', flag = false) {
 module.exports = {
   writeFileByType,
   writeComponentFileByLanguage,
-  writeReduxMCFile
+  writeReduxMCFile,
+  wirteUmiSrcModelAndService
 }

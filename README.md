@@ -10,7 +10,7 @@ xxx                     // 业务组件根目录
   |-- services          // 业务 services 目录
     |-- xxx.js          // 业务 service 文件
   |-- XxxPage.js        // 业务组件开发入口，自动 connect model
-  |-- XxxPage.less      // 业务样式
+  |-- XxxPage.scss      // 业务样式
   |-- index.js          // 业务入口，使用 dynamic 引用
   |-- MapProps.js       // mapStateToProps、mapDispatchToProps，自动引用 model
 </pre>
@@ -57,7 +57,7 @@ project                         //当前项目根目录
         |-- services          // 业务 services 目录
           |-- home.j|ts         // 业务 service 文件
         |-- HomePage.j|ts       // 业务组件开发入口，自动 connect model
-        |-- HomePage.less     // 业务样式
+        |-- HomePage.scss     // 业务样式
         |-- index.j|ts          // 业务入口，使用 dynamic 引用
         |-- MapProps.j|ts       // mapStateToProps、mapDispatchToProps，自动引用 model                 
  
@@ -87,7 +87,7 @@ project                         //当前项目根目录
       |--xxx                    // 业务页面根目录
         |-- components          // 业务组件目录         
         |-- XxxPage.j|ts            // 业务组件开发入口，自动 connect model
-        |-- XxxPage.less           // 业务样式
+        |-- XxxPage.scss           // 业务样式
         |-- index.j|ts                  // 业务入口，使用 dynamic 引用
         |-- MapProps.j|ts               // mapStateToProps、mapDispatchToProps，自动引用 model                 
  

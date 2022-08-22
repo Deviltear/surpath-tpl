@@ -56,7 +56,7 @@ export const mapDispatchToProps = dispatch => ({
 }
 
 // 入口组件内容
-function pContent(pageName, options) {
+function pContent(pageName, options,fileName) {
   const { author } = options
   const content = `/*
 * Author: ${author} 
@@ -68,38 +68,40 @@ import { compose, bindActionCreators } from "redux";
 import { actionCreators } from "@/reducers/${pageName}";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { mapStateToProps, mapDispatchToProps } from './MapProps';
-import { someComponent } from '../components'
-import styles from './${pageName}.less';
+import { SomeComponent } from '../components'
+import styles from './${pageName}.scss';
 
 
 export default compose(
   withRouter,
   connect(
-    ({ ${pageName} }) => ({
-      ...${pageName}
+    ({ ${fileName} }) => ({
+      ...${fileName}
     }),
     Dispatch => bindActionCreators({ ...actionCreators }, Dispatch)
   )
 )(React.memo(${pageName}));
 
-function ${pageName} (props) {
+interface I${pageName}Props {
+  name:string
+}
+
+function ${pageName} (props:I${pageName}Props) {
   const { name } = props
   const [visible, setVisible] = useState(false);
     return (
       <div className={styles.root}>
-        <someComponent/>
+        <SomeComponent/>
         <div>{name}</div>
       </div>
     );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(${pageName});
 `
   return content
 }
 
-// less 内容
+// scss 内容
 function lessContent() {
   const content = `.root{
 

@@ -68,7 +68,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from 'umi';
 import { ResultProps } from './models/${fileName}';
 import { mapStateToProps, mapDispatchToProps } from './MapProps';
-import styles from './${pageName}.less';
+import styles from './${pageName}.scss';
 
 interface ${pageName}Props {
   name:string;
@@ -94,7 +94,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(${pageName});
   return content;
 }
 
-// less 内容
+// scss 内容
 function lessContent() {
   const content = `.root{
   :global{

@@ -28,23 +28,19 @@ function pContent(fileName, options) {
 */
 import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types'
-import classnames from 'classnames';
-import classPrefix from 'prefix-classnames';
-import './${fileName}.less';
-
-const PREFIX = 'c-${fileName}';
-const px = classPrefix(PREFIX);
-
+import cn from 'classnames';
+import styles from './${fileName}.scss';
 
 
 const ${fileName} = (props) => {
   const { style, className } = props;
   const [visible, setVisible] = useState(false);
-  const classNames = classnames(px('root'), className);
+  const classNames = cn(className);
 
   return (
     <div className={classNames} style={style}>
       <h1>组件内容</h1>
+      <div className={styles.title}>标题</div>
     </div>
   );
 };
@@ -57,18 +53,12 @@ export default ${fileName};
   return content
 }
 
-// less 内容
+// scss 内容
 function lessContent(fileName) {
-  const content = `@prefix: c-${fileName};
+  const content = `.${fileName}{
 
-.@{prefix} {
-  &- {
-    &root {
-      padding: 16px 16px 0 16px;
-    }
   }
-}
-`
+  `
   return content
 }
 

@@ -5,9 +5,9 @@ const inquirer = require('inquirer')
 
 const conf = require('./config')
 const { capitalize, smallLetters } = require('./utils')
-const { writeFileByType, writeComponentFileByLanguage, writeReduxMCFile } = require('./template')
+const { writeFileByType, writeComponentFileByLanguage, writeReduxMCFile, wirteUmiSrcModelAndService } = require('./template')
 
-const UMI_DIRS = ['models', 'services', 'components']
+const UMI_DIRS = ['models', 'services']
 const MVC_DIRS = ['reducers', 'services']
 
 const CHOOSE_TEMPLATE_TYPE = [
@@ -102,13 +102,20 @@ function start(file, argv) {
       const fileName = smallLetters(file)
       const filePath = path.resolve(process.cwd(), root, capitalize(file))
       const pageName = `${capitalize(file)}Page`
-
-      // 创建目录
-      UMI_DIRS.forEach(dirName => {
-        mkdirsSync(`${filePath}/${dirName}`)
-      })
-
+      const fileSuffix = templateLanguage === 'TS' ? 'ts' : 'js'
+      // 在page内部创建model和service
+      // UMI_DIRS.forEach(dirName => {
+      //   mkdirsSync(`${filePath}/${dirName}`)
+      // })
+      mkdirsSync(`${filePath}/${'components'}`)
       writeFileByType(filePath, pageName, fileName, argv)
+      UMI_DIRS.forEach(dirName => {
+        const dirPath = path.resolve(process.cwd(), 'src')
+        if (!findDirs(dirPath).includes(dirName)) {
+          mkdirsSync(`${dirPath}/${dirName}`)
+        }
+        wirteUmiSrcModelAndService(`${dirPath}/${dirName}`, fileName, argv, fileSuffix)
+      })
       return
     }
     if (pageType === 'mvc') {

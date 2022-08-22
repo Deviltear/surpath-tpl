@@ -64,9 +64,13 @@ import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types'
 import { connect } from 'umi';
 import { mapStateToProps, mapDispatchToProps } from './MapProps';
-import styles from './${pageName}.less';
+import styles from './${pageName}.scss';
 
-const ${pageName} = (props) => {
+interface I${pageName}Props {
+  name:string;
+  age?number
+}
+const ${pageName} = (props:I${pageName}Props) => {
   const { name ,age} =props
   const [visible, setVisible] = useState(false);
 
@@ -89,7 +93,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(${pageName});
   return content;
 }
 
-// less 内容
+// scss 内容
 function lessContent() {
   const content = `.root{
   :global{
