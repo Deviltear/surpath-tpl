@@ -71,17 +71,6 @@ import { withRouter } from "react-router-dom";
 import { SomeComponent } from '../components'
 import styles from './${pageName}.scss';
 
-
-export default compose(
-  withRouter,
-  connect(
-    ({ ${fileName} }) => ({
-      ...${fileName}
-    }),
-    Dispatch => bindActionCreators({ ...actionCreators }, Dispatch)
-  )
-)(React.memo(${pageName}));
-
 interface I${pageName}Props {
   name:string
 }
@@ -96,6 +85,16 @@ function ${pageName} (props:I${pageName}Props) {
       </div>
     );
 }
+
+export default compose(
+  withRouter,
+  connect(
+    ({ ${fileName} }) => ({
+      ...${fileName}
+    }),
+    Dispatch => bindActionCreators({ ...actionCreators }, Dispatch)
+  )
+)(React.memo(${pageName}));
 
 `
   return content

@@ -1,6 +1,6 @@
 {
   "name": "surpath-tpl",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "创建统一模块模板，支持模板有 umi js、umi ts、ts js 函数组件、mvc目录结构模板等",
   "keywords": [
     "surpath-tpl",

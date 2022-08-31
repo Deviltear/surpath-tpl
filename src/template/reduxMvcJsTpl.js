@@ -71,17 +71,6 @@ import { withRouter } from "react-router-dom";
 import { SomeComponent } from '../components'
 import styles from './${pageName}.scss';
 
-
-export default compose(
-  withRouter,
-  connect(
-    ({ ${fileName} }) => ({
-      ...${fileName}
-    }),
-    Dispatch => bindActionCreators({ ...actionCreators }, Dispatch)
-  )
-)(React.memo(${pageName}));
-
 function ${pageName} (props) {
   const { name } = props
   const [visible, setVisible] = useState(false);
@@ -92,6 +81,16 @@ function ${pageName} (props) {
       </div>
     );
 }
+
+export default compose(
+  withRouter,
+  connect(
+    ({ ${fileName} }) => ({
+      ...${fileName}
+    }),
+    Dispatch => bindActionCreators({ ...actionCreators }, Dispatch)
+  )
+)(React.memo(${pageName}));
 
 `
   return content
