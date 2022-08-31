@@ -1,6 +1,6 @@
 {
   "name": "surpath-tpl",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "创建统一模块模板，支持模板有 umi js、umi ts、ts js 函数组件、mvc目录结构模板等",
   "keywords": [
     "surpath-tpl",
@@ -12,7 +12,7 @@
     "url": "https://github.com/Deviltear/surpath-tpl.git"
   },
   "bin": {
-    "surpathTpl": "bin/tpl.js"
+    "sptpl": "bin/tpl.js"
   },
   "scripts": {
     "clean": "rimraf ./lib",

@@ -24,23 +24,23 @@ npm i surpath-tpl -g
 
 为了规范，在创建模块的时候，同时支持传入头文件注释 author，命令行：
 ```
-$ surpathTpl 模块名 --author=小明
+$ sptpl 模块名 --author=小明
 
 或者使用简写
 
-$ surpathTpl 模块名 -a=小明
+$ sptpl 模块名 -a=小明
 ```
 
 
 头文件注释 author可省略
 
 ```
-$ surpathTpl 模块名
+$ sptpl 模块名
 ```
 
 例如：需要创建 home 模块，则运行如下命令
 ```
-surpathTpl home
+sptpl home
 
 ```
 
@@ -104,7 +104,7 @@ project                         //当前项目根目录
 
 - 4.如果执行命令的目录下没有 `src/pages` ，则默认在执行的目录下创建模块；
 
-- 5.支持创建模块的时候，同时传入头文件注释 author，简写命令为：`$ tpl 模块名 -a=xxx`
+- 5.支持创建模块的时候，同时传入头文件注释 author，简写命令为：`$ sptpl 模块名 -a=xxx`
 
 - 6.目前支持的模板有：
 - 1.页面: umi ts, umi js,mvc ts,mvc js。
